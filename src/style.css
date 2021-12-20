@@ -1,0 +1,37 @@
+#content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.project {
+padding-bottom: 20px;
+margin-bottom: 10px;
+border-style: solid;
+border-left: 0px;
+border-right: 0px;
+border-width: 1px;
+border-color: lightgray;
+}
+
+.dueDate {
+padding-top: 16px;
+padding-bottom: 16px;
+}
+
+.project {
+width: 500px;
+display: flex;
+justify-content: space-between;
+align-content: center;
+}
+
+#create {
+  width: 70px;
+  height: 40px;
+  margin-top: 10px;
+  background: lightgreen;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: lightgreen;
+}

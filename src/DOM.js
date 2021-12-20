@@ -11,7 +11,7 @@ function dom () {
     content.appendChild(projectList);
 
     const myButton = document.createElement('button');
-    myButton.setAttribute('id', 'mybutton');
+    myButton.setAttribute('id', 'create');
     myButton.innerText = "Create";
     content.appendChild(myButton);
 
@@ -22,8 +22,9 @@ function dom () {
 function addProject(){
     let proName = prompt("Project name: ");
     let proDesc = prompt("Description: ");
+    let proDate = prompt("When is it due: ");
 
-    let newPro = projectFactory(proName, proDesc);
+    let newPro = projectFactory(proName, proDesc, proDate);
     projects.push(newPro);
 
     console.log(projects);
@@ -39,11 +40,35 @@ function listProjects() {
 
 
     projects.forEach(obj =>{
+
         let pro = document.createElement('div');
-        pro.innerHTML = `<p> ${obj.name} </p>`;
+        pro.setAttribute('class', 'project');
+
+        // Create left side of project, name and desc.
+        let proLeft = document.createElement('div');
+        proLeft.setAttribute('class', 'proLeft');
+        proLeft.innerHTML = `<p> ${obj.name} </p>`;
         let text = document.createTextNode(`${obj.description}`);
-        pro.appendChild(text);
-        listTop.appendChild(pro);        
+        proLeft.appendChild(text);
+        pro.appendChild(proLeft);
+        
+        // Create right side of project, due date and create task.
+        let proRight = document.createElement('div');
+        proRight.setAttribute('class', 'proRight');
+        let dueDate = document.createElement('div')
+        dueDate.setAttribute('class', 'dueDate');
+        dueDate.innerHTML = `${obj.due}`;
+        proRight.appendChild(dueDate);
+        pro.appendChild(proRight);
+
+        let newTask = document.createElement('button');
+        newTask.setAttribute('class', 'newTask');
+        newTask.textContent = `+`;
+        proRight.appendChild(newTask);
+
+        // Add all to project list.
+        listTop.appendChild(pro);      
+
     });
 }
 
