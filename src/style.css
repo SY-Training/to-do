@@ -1,37 +1,84 @@
-#content {
+body {
   display: flex;
   flex-direction: column;
-  padding-left: 10px;
 }
 
-.project {
-padding-bottom: 20px;
-margin-bottom: 10px;
-border-style: solid;
-border-left: 0px;
-border-right: 0px;
-border-width: 1px;
-border-color: lightgray;
-}
 
-.dueDate {
-padding-top: 16px;
-padding-bottom: 16px;
-}
-
-.project {
-width: 500px;
-display: flex;
-justify-content: space-between;
-align-content: center;
-}
-
-#create {
-  width: 70px;
-  height: 40px;
-  margin-top: 10px;
-  background: lightgreen;
+#header {
+  background-color: #54A3D8;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  border: 1px;
+  border-bottom-color: orange;
   border-style: solid;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+}
+
+.header-box {
+  display: flex;
+  align-self: center;
+  font-size: 50px;
+  font-weight: 700;
+  background-color: grey;
+  padding: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
   border-radius: 10px;
-  border-color: lightgreen;
+}
+
+#middle {
+  display: flex;  
+}
+
+#middle > *:nth-child(1) {
+  flex: 1 1 30%
+}
+
+#middle > *:nth-child(2) {
+  flex: 1 1 70%
+}
+
+#left-pane {
+  background-color: gray;
+  padding: 10px;
+  background-color: #54A3D8;
+  border: 1px;
+  border-style: solid;
+  border-right-color: orange;
+  border-top-color: orange;
+  border-left: 0px;
+  border-bottom: 0px; 
+}
+
+.nav {
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 30px;
+  background-color: grey;
+  padding: 20px;
+  padding-bottom: 40px;
+  border-radius: 10px;
+}
+
+#right-pane {
+  background-color: #54A3D8;
+  display: flex;
+  padding: 10px;
+  border: 1px;
+  border-style: solid;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left-color: orange;
+  border-top-color: orange;
+}
+
+.task-box {
+  padding: 20px;
+  background-color: grey;
+  border-radius: 10px;
+  display: flex;
+  flex: 1 1;
 }
