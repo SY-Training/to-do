@@ -54,13 +54,24 @@ body {
 }
 
 .nav {
-  text-decoration: underline;
-  font-weight: 700;
-  font-size: 30px;
   background-color: grey;
   padding: 20px;
   padding-bottom: 40px;
   border-radius: 10px;
+}
+
+.projectsTitle {
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 30px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+}
+
+.newProject {
+  border-radius: 10px;
+  border-style: solid;
+  margin-bottom: 10px;
 }
 
 #right-pane {
