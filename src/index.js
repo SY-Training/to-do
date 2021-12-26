@@ -1,5 +1,5 @@
 import './style.css';
-import {Landing, UpdateProjectView} from './DOM.js'
+import {Landing, UpdateProjectView, UpdateTaskView} from './DOM.js'
 
 Landing();
 
@@ -28,11 +28,47 @@ function NewProjectPrompt() {
 
 function CreateProject(title) {
     return {
-        title
+        title,
+        tasks : { },
     }
 }
+
+function createTask(proName) {
+    
+    let description = prompt("Task: ")
+    // let due date.
+    let t = 0;
+
+    projects.forEach(obj =>{
+        if (obj.title == proName){
+
+            let size = Object.keys(obj.tasks).length
+
+            /*  -- This is if I don't want to use the nested object for tasks. 
+                    Also remove nexted prop from create project. 
+                    And change obj.tasks to just obj above.
+
+            for (let i = 0; i < size; i++){
+                obj[`task${i}`] = description;
+            }
+            */
+            
+            for (t = 0; t < size; t++)
+            {
+
+            }
+
+            obj.tasks[`task${t}`] = description;            
+        }
+    })
+    
+    UpdateTaskView(proName);
+
+}
+
 
 export {
     myProjects,
     NewProjectPrompt,
+    createTask,
 }

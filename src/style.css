@@ -74,6 +74,18 @@ body {
   margin-bottom: 10px;
 }
 
+.projectList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.projects {
+  background: none;
+  border-style: none;
+  margin-bottom: 10px;
+}
+
 #right-pane {
   background-color: #54A3D8;
   display: flex;
