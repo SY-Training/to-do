@@ -39,7 +39,10 @@ function UpdateProjectView() {
 
 function LoadRightPane(e) {
 
-    taskBox.removeChild(taskBox.firstChild);
+    if (taskBox.firstChild){
+        taskBox.removeChild(taskBox.firstChild);
+    }
+
 
     let newTask = document.createElement('button');
     newTask.setAttribute('class', 'newTask');
@@ -55,6 +58,28 @@ function UpdateTaskView(proName) {
     // List tasks pertaining to project.
 
     //project name does work here.
+
+    let projectList = myProjects();
+
+    while (taskBox.firstChild){
+        taskBox.removeChild(taskBox.lastChild);
+    }
+
+    projectList.forEach(obj => {
+        if (obj.title === proName){
+            //console.log(obj.tasks);
+
+            let vals = Object.values(obj.tasks).forEach(task => {
+                let taskList = document.createElement('div');
+                taskList.setAttribute('class', 'taskList');
+                let taskText = document.createTextNode(task);
+                taskList.appendChild(taskText);
+                taskBox.appendChild(taskList);
+            })            
+            
+        }
+    })
+
 }
 
 export {

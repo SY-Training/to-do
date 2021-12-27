@@ -99,9 +99,15 @@ body {
 }
 
 .task-box {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   background-color: grey;
   border-radius: 10px;
   display: flex;
   flex: 1 1;
+}
+
+.taskList {
+  padding-bottom: 10px;
 }
