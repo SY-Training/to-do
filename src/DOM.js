@@ -30,14 +30,14 @@ function UpdateProjectView() {
         let pro = document.createElement('button');
         pro.setAttribute('id', `${obj.title}`);
         pro.setAttribute('class', 'projects');
-        pro.addEventListener("click", LoadRightPane);
+        pro.addEventListener("click", function(){LoadRightPane(`${obj.title}`)});
         pro.textContent = `${obj.title}`;
         nav.appendChild(pro);
     })
     
 }
 
-function LoadRightPane(e) {
+function LoadRightPane(name) {
 
     if (taskBox.firstChild){
         taskBox.removeChild(taskBox.firstChild);
@@ -47,17 +47,11 @@ function LoadRightPane(e) {
     let newTask = document.createElement('button');
     newTask.setAttribute('class', 'newTask');
     newTask.textContent = `New Task`;
+    newTask.addEventListener("click", function() {createTask(name);});
     taskBox.appendChild(newTask);
-    console.log(e.currentTarget.id);
-    newTask.addEventListener('click', createTask(e.currentTarget.id));
-    // update view with tasks. 
-
 }
 
 function UpdateTaskView(proName) {
-    // List tasks pertaining to project.
-
-    //project name does work here.
 
     let projectList = myProjects();
 
@@ -67,7 +61,6 @@ function UpdateTaskView(proName) {
 
     projectList.forEach(obj => {
         if (obj.title === proName){
-            //console.log(obj.tasks);
 
             let vals = Object.values(obj.tasks).forEach(task => {
                 let taskList = document.createElement('div');
@@ -79,7 +72,6 @@ function UpdateTaskView(proName) {
             
         }
     })
-
 }
 
 export {
