@@ -1,5 +1,5 @@
 import './style.css';
-import {Landing, UpdateProjectView, UpdateTaskView} from './DOM.js'
+import {Landing, UpdateProjectView, UpdateTaskView} from './DOM.js';
 
 Landing();
 
@@ -31,6 +31,16 @@ function CreateProject(title) {
         title,
         tasks : { },
     }
+}
+
+function DeleteProject(name) {
+    projects.forEach(obj => {
+        for (let i =0; i < projects.length; i++){
+            if (obj.title === name){
+                console.log("name = " + i);
+            }
+        }
+    })
 }
 
 function createTask(proName) {
@@ -71,4 +81,5 @@ export {
     myProjects,
     NewProjectPrompt,
     createTask,
+    DeleteProject,
 }

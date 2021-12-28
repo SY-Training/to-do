@@ -1,4 +1,4 @@
-import { myProjects, NewProjectPrompt, createTask } from "./index.js";
+import { myProjects, NewProjectPrompt, createTask, DeleteProject, } from "./index.js";
 
 const headerBox = document.querySelector('.header-box');
 const nav = document.querySelector('.projectList');
@@ -32,6 +32,13 @@ function UpdateProjectView() {
         pro.setAttribute('class', 'projects');
         pro.addEventListener("click", function(){LoadRightPane(`${obj.title}`)});
         pro.textContent = `${obj.title}`;
+        // Add delete button.
+        let del = document.createElement('button');
+        del.setAttribute('class', 'proDel');
+        del.textContent = "Delete Project";
+        del.addEventListener("click", function() {DeleteProject(`${obj.title}`)})
+        pro.appendChild(del);
+
         nav.appendChild(pro);
     })
     
@@ -67,6 +74,15 @@ function UpdateTaskView(proName) {
                 taskList.setAttribute('class', 'taskList');
                 let taskText = document.createTextNode(task);
                 taskList.appendChild(taskText);
+                // Adding checkbox to task.
+                let check = document.createElement('input');
+                check.setAttribute('type', 'checkbox');
+                check.addEventListener('change', function() {
+                    if (this.checked){
+                        taskList.style.setProperty('text-decoration', 'line-through');
+                    }
+                })
+                taskList.appendChild(check);
                 taskBox.appendChild(taskList);
             })            
             
