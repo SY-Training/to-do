@@ -3,6 +3,9 @@ import {Landing, UpdateProjectView, UpdateTaskView} from './DOM.js';
 
 Landing();
 
+// TO DO 
+// - Implement saving.
+
 
 // when selecting object, clicking a new task button will add a task to that project.
 // So selecting a project will load it in task view.
@@ -34,13 +37,12 @@ function CreateProject(title) {
 }
 
 function DeleteProject(name) {
-    projects.forEach(obj => {
-        for (let i =0; i < projects.length; i++){
-            if (obj.title === name){
-                console.log("name = " + i);
-            }
-        }
+    const index = projects.findIndex((pro) => {
+        return pro.title === name;
     })
+
+    projects.splice(index, 1);
+    console.log(index);
 }
 
 function createTask(proName) {
