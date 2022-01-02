@@ -39,6 +39,7 @@ function DeleteProject(name) {
   });
 
   projects.splice(index, 1);
+  saveToLocalStorage();
   UpdateProjectView();
 }
 
@@ -74,14 +75,23 @@ function DeleteTask(name) {
 }
 
 const saveToLocalStorage = () => {
-  localStorage.setItem("projects", JSON.stringify(projects));
+  //localStorage.setItem("projects", JSON.stringify(projects));
+
+  const saveProjects = JSON.stringify(projects);
+  localStorage.setItem("projects", saveProjects);
 };
 
 const loadLocalStorage = () => {
   if (projects.length > 0) {
-    JSON.parse(localStorage.getItem("projects"));
+    //JSON.parse(localStorage.getItem("projects"));
+
   } else {
-    console.log("empty");
+    const str = localStorage.getItem("projects");
+    const parseProjects = JSON.parse(str);
+
+    for (let i = 0; i < parseProjects.length; i++){
+      projects.push(parseProjects[i]);
+    }
   }
 };
 
